@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Clerk Auth Test</title>
-<script async crossorigin src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
+  <script async crossorigin src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script> <!-- replace this -->
 </head>
 <body>
   <h1>Welcome to Parkbench Auth</h1>
@@ -16,7 +16,7 @@
 
   <script>
     window.Clerk.load({
-      frontendApi: "https://wise-platypus-74.clerk.accounts.dev",
+      frontendApi: "clerk.wise-platypus-74", // replace with yours
       publishableKey: "pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
     });
   </script>
