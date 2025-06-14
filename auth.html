@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Clerk Auth Test</title>
+  <script async crossorigin src="https://cdn.clerk.dev/clerk.browser.js"></script>
+</head>
+<body>
+  <h1>Welcome to Parkbench Auth</h1>
+
+  <div id="auth-container">
+    <clerk-sign-in></clerk-sign-in>
+    <clerk-sign-up></clerk-sign-up>
+    <clerk-user-button></clerk-user-button>
+  </div>
+
+  <script>
+    window.Clerk.load({
+      frontendApi: "https://wise-platypus-74.clerk.accounts.dev",
+      publishableKey: "pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
+    });
+  </script>
+</body>
+</html>
