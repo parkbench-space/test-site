@@ -7,14 +7,16 @@
     console.log("Starting auth.html render");
   </script>
   <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
-    src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
-    type="text/javascript"
-    onload="console.log('Clerk script loaded')"
-    onerror="console.error('Clerk script load failed')"
-  ></script>
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
+  data-clerk-frontend-api="wise-platypus-74.clerk.accounts.dev"
+  src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+  type="text/javascript"
+  onload="console.log('Clerk script loaded')"
+  onerror="console.error('Clerk script load failed')"
+></script>
+
 </head>
 <body>
   <h1>Welcome to Parkbench Auth</h1>
