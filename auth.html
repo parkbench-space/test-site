@@ -4,33 +4,33 @@
   <meta charset="UTF-8" />
   <title>Clerk Auth Test</title>
   <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
-    data-clerk-frontend-api="wise-platypus-74.clerk.accounts.dev"
-    src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
-    onload="console.log('Clerk script loaded')"
-    onerror="console.error('Clerk script load failed')"
-  ></script>
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
+  data-clerk-frontend-api="wise-platypus-74"
+  src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+  onload="console.log('Clerk script loaded')"
+  onerror="console.error('Clerk script failed')"
+></script>
+
 </head>
 <body>
   <h1>Welcome to Parkbench Auth</h1>
 
   <div id="clerk-root"></div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log("window.Clerk:", window.Clerk);
-      // Initialize Clerk and mount to #clerk-root
-      window.Clerk?.mount({
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log("window.Clerk:", window.Clerk);
+    if (window.Clerk) {
+      window.Clerk.mount({
         root: document.getElementById('clerk-root'),
         routing: false,
       });
-
-      // Log the mounted components
       console.log("clerk-root.innerHTML after mount:", document.getElementById('clerk-root').innerHTML);
-    });
-  </script>
+    }
+  });
+</script>
+
 </body>
 </html>
 
