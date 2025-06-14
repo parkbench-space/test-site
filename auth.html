@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Clerk Auth Test</title>
-    <script
-      async
-      crossorigin="anonymous"
-      data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
-      src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
-      type="text/javascript">
-    </script>
-  </head>
-  <body>
-    <h1>Welcome to Parkbench Auth</h1>
+<head>
+  <meta charset="UTF-8" />
+  <title>Clerk Auth Test</title>
+  <script>
+    console.log("Starting auth.html render");
+  </script>
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
+    src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+    type="text/javascript"
+    onload="console.log('Clerk script loaded')"
+    onerror="console.error('Clerk script load failed')"
+  ></script>
+</head>
+<body>
+  <h1>Welcome to Parkbench Auth</h1>
 
-    <clerk-provider>
-      <sign-in></sign-in>
-      <sign-up></sign-up>
-      <user-button></user-button>
-    </clerk-provider>
+  <clerk-provider>
+    <sign-in></sign-in>
+    <sign-up></sign-up>
+    <user-button></user-button>
+  </clerk-provider>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        console.log("window.Clerk:", window.Clerk);
-        console.log("sign-in element:", document.querySelector('sign-in'));
-        console.log("user-button element:", document.querySelector('user-button'));
-      });
-    </script>
-  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log("DOMContentLoaded, window.Clerk:", window.Clerk);
+      console.log("sign-in tag exists:", !!document.querySelector('sign-in'));
+      console.log("sign-in innerHTML:", document.querySelector('sign-in')?.innerHTML);
+    });
+  </script>
+</body>
 </html>
