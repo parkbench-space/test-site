@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Parkbench Post Test</title>
+</head>
+<body>
+  <h1>Nearby Posts</h1>
+  <ul id="post-list"></ul>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabaseUrl = 'https://omflhydpmmsqvklubnfk.supabase.co'
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9tZmxoeWRwbW1zcXZrbHVibmZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk5MjY3NjEsImV4cCI6MjA2NTUwMjc2MX0.qJjs2ncEsQoHIivfeInmzwRdtGLyBPUnSxpbZN1tkh8'
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
+    // Replace with a test visitor's coordinates
+    const visitorLat = 42.8775345
+    const visitorLng = -72.874479
+
+    async function getNearbyPosts() {
+      const { data, error } = await supabase
+        .rpc('get_posts_within_radius', {
+          lat: visitorLat,
+          lng: visitorLng,
+          radius_miles: 25
+        })
+
+      if (error) {
+        console.error('Error fetching posts:', error)
+        return
+      }
+
+      const postList = document.getElementById('post-list')
+      data.forEach(post => {
+        const li = document.createElement('li')
+        li.textContent = `${post.title} (${post.distance.toFixed(1)} miles away)`
+        postList.appendChild(li)
+      })
+    }
+
+    getNearbyPosts()
+  </script>
+</body>
+</html>
