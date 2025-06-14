@@ -6,23 +6,15 @@
   <script
     async
     crossorigin
+    data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
     src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
   </script>
 </head>
 <body>
   <h1>Welcome to Parkbench Auth</h1>
 
-  <div id="auth-container">
-    <clerk-sign-in></clerk-sign-in>
-    <clerk-sign-up></clerk-sign-up>
-    <clerk-user-button></clerk-user-button>
-  </div>
-
-  <script>
-    window.Clerk.load({
-      frontendApi: "wise-platypus-74.clerk.accounts.dev",
-      publishableKey: "pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
-    });
-  </script>
+  <clerk-sign-in></clerk-sign-in>
+  <clerk-sign-up></clerk-sign-up>
+  <clerk-user-button></clerk-user-button>
 </body>
 </html>
