@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <title>Parkbench Auth</title>
+
+    <script>
+      window.__clerk_onload = async function () {
+        const clerk = window.Clerk;
+        await clerk.load();
+
+        if (clerk.user) {
+          document.getElementById('user-button').style.display = 'block';
+          clerk.mountUserButton(document.getElementById('user-button'));
+        } else {
+          document.getElementById('sign-in').style.display = 'block';
+          document.getElementById('sign-up').style.display = 'block';
+          clerk.mountSignIn(document.getElementById('sign-in'));
+          clerk.mountSignUp(document.getElementById('sign-up'));
+        }
+      };
+    </script>
+
     <script
       async
       crossorigin="anonymous"
@@ -19,25 +37,5 @@
       <div id="sign-in" style="display:none;"></div>
       <div id="sign-up" style="display:none;"></div>
     </div>
-
-    <script>
-      window.addEventListener('clerk.ready', async () => {
-        const clerk = window.Clerk;
-
-        await clerk.load();
-
-        if (clerk.user) {
-          // User is signed in
-          document.getElementById('user-button').style.display = 'block';
-          clerk.mountUserButton(document.getElementById('user-button'));
-        } else {
-          // User is not signed in
-          document.getElementById('sign-in').style.display = 'block';
-          document.getElementById('sign-up').style.display = 'block';
-          clerk.mountSignIn(document.getElementById('sign-in'));
-          clerk.mountSignUp(document.getElementById('sign-up'));
-        }
-      });
-    </script>
   </body>
 </html>
