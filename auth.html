@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Parkbench Auth Test</title>
-    <script
-      async
-      crossorigin="anonymous"
-      data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
-      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
-    ></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Parkbench Auth Test</title>
+  <!-- Load Clerk SDK -->
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
+    data-clerk-frontend-api="keywords-heavy-salmon-20"
+    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+  ></script>
+</head>
 
-  <body>
-    <h1>Parkbench Auth Test</h1>
+<body>
+  <h1>Parkbench Auth Test</h1>
 
-    <div id="sign-in"></div>
-    <div id="sign-up"></div>
-    <div id="user-button" style="margin-top: 20px;"></div>
+  <div id="sign-in"></div>
+  <div id="sign-up"></div>
+  <div id="user-button" style="margin-top: 20px;"></div>
 
-    <script>
-      window.__clerk_onload = () => {
-        const clerk = window.Clerk;
+  <script>
+    window.__clerk_onload = () => {
+      const clerk = window.Clerk;
+      if (!clerk) {
+        console.error('Clerk not loaded');
+        return;
+      }
 
-        clerk.mountSignIn("#sign-in");
-        clerk.mountSignUp("#sign-up");
-        clerk.mountUserButton("#user-button");
-      };
-    </script>
-  </body>
+      clerk.mountSignIn('#sign-in');
+      clerk.mountSignUp('#sign-up');
+      clerk.mountUserButton('#user-button');
+      console.log('Clerk UI mounted 🎉');
+    };
+  </script>
+</body>
 </html>
