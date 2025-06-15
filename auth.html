@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Parkbench Auth Test</title>
-</head>
-<body>
-  <h1>Parkbench Auth</h1>
-  <div id="sign-up"></div>
-  <div id="sign-in"></div>
-  <div id="user-button" style="margin-top: 20px;"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parkbench Auth Test</title>
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
+      src="https://keywords-heavy-salmon-20.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+    ></script>
+  </head>
 
-  <!-- Load Clerk SDK once -->
-  <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_d2lzZS1wbGF0eXB1cy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
-    src="https://wise-platypus-74.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
-    type="text/javascript">
-  </script>
+  <body>
+    <h1>Parkbench Auth Test</h1>
 
-  <!-- Define what happens when Clerk is ready -->
-  <script>
-    window.__clerk_onload = async function () {
-      const clerk = window.Clerk;
-      await clerk.load();
+    <div id="sign-in"></div>
+    <div id="sign-up"></div>
+    <div id="user-button" style="margin-top: 20px;"></div>
 
-      if (clerk.user) {
-        document.getElementById('user-button').style.display = 'block';
-        clerk.mountUserButton(document.getElementById('user-button'));
-      } else {
-        clerk.mountSignIn(document.getElementById('sign-in'));
-        clerk.mountSignUp(document.getElementById('sign-up'));
-      }
-    };
-  </script>
-</body>
+    <script>
+      window.__clerk_onload = () => {
+        const clerk = window.Clerk;
+
+        clerk.mountSignIn("#sign-in");
+        clerk.mountSignUp("#sign-up");
+        clerk.mountUserButton("#user-button");
+      };
+    </script>
+  </body>
 </html>
-
